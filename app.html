@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vitalink Retos · Descargar la app de prueba</title>
+<meta name="description" content="Descarga e instrucciones de la app de prueba Vitalink Retos para Android.">
+<style>
+  :root {
+    color-scheme: light;
+    --brand: #0F7A5C; --brand-dark: #0A5A44; --brand-soft: #E3F1EB; --ground: #F4F6F3;
+    --line: #E2E7E4; --ink: #17201C; --muted: #5A6762; --warm-soft: #FFF1E6;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--ground); color: var(--ink); font: 16px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  main { max-width: 760px; margin: 0 auto; padding: 28px 16px 56px; display: grid; gap: 16px; }
+  .card { background: #fff; border: 1px solid var(--line); border-radius: 18px; padding: 22px; }
+  .hero { display: grid; grid-template-columns: 1fr auto; gap: 20px; align-items: center; }
+  .logo { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+  .logo-mark { width: 40px; height: 40px; border-radius: 12px; background: var(--brand); color: #fff; display: grid; place-items: center; font-weight: 800; font-size: 18px; }
+  h1 { margin: 0 0 6px; font-size: 28px; letter-spacing: -.3px; }
+  h2 { margin: 0 0 12px; font-size: 18px; }
+  p { margin: 0 0 10px; }
+  .muted { color: var(--muted); font-size: 14px; }
+  .download { display: inline-flex; align-items: center; gap: 10px; background: var(--brand); color: #fff; text-decoration: none; font-weight: 700; font-size: 17px; padding: 14px 22px; border-radius: 14px; margin: 8px 0 6px; }
+  .download:hover { background: var(--brand-dark); }
+  .qr { text-align: center; font-size: 13px; color: var(--muted); }
+  .qr #qr { background: #fff; padding: 10px; border: 1px solid var(--line); border-radius: 14px; display: inline-block; margin-bottom: 6px; }
+  .qr img, .qr canvas { display: block; }
+  ol { margin: 0; padding-left: 22px; }
+  ol li { margin-bottom: 12px; }
+  ol li b { display: block; }
+  ul { margin: 0; padding-left: 20px; }
+  ul li { margin-bottom: 6px; }
+  .note { background: var(--warm-soft); border-radius: 14px; padding: 14px 16px; font-size: 15px; }
+  .chips { display: flex; gap: 8px; flex-wrap: wrap; margin: 6px 0 4px; }
+  .chip { background: var(--brand-soft); color: var(--brand-dark); font-size: 13px; font-weight: 600; padding: 4px 10px; border-radius: 999px; }
+  footer { text-align: center; font-size: 13px; color: var(--muted); }
+  a { color: var(--brand-dark); }
+  @media (max-width: 600px) {
+    .hero { grid-template-columns: 1fr; }
+    .qr { display: none; }
+    .download { width: 100%; justify-content: center; }
+    h1 { font-size: 24px; }
+  }
+</style>
+</head>
+<body>
+<main>
+  <section class="card hero">
+    <div>
+      <div class="logo"><div class="logo-mark">V</div><b>Vitalink Retos</b></div>
+      <h1>App de prueba para Android</h1>
+      <p class="muted">Suma tus pasos y tu ejercicio desde el móvil o el reloj, gana Vitas, mantén rachas y completa misiones semanales.</p>
+      <div class="chips"><span class="chip">Versión 0.2</span><span class="chip">Android 8 o superior</span><span class="chip">54 MB</span></div>
+      <a class="download" href="https://github.com/wmunny/vitalink-retos-demo/releases/latest/download/Vitalink-Retos.apk">⬇ Descargar la app</a>
+      <p class="muted">Abre esta página desde el móvil Android para descargarla directamente.</p>
+    </div>
+    <div class="qr"><div id="qr"></div><div>Escanéalo con el móvil</div></div>
+  </section>
+
+  <section class="card">
+    <h2>Instalación (2 minutos)</h2>
+    <ol>
+      <li><b>Descarga y abre el archivo</b>Pulsa «Descargar la app» y abre <i>Vitalink-Retos.apk</i> cuando termine. Si Android pide permitir «instalar apps desconocidas» desde el navegador, acéptalo.</li>
+      <li><b>Si aparece un aviso de Play Protect</b>Pulsa «Más detalles» › «Instalar de todos modos». Es normal en apps de prueba que no están en Google Play.</li>
+      <li><b>Conecta tus pasos</b>Abre Vitalink Retos y pulsa «Dar permiso a Health Connect». Acepta <i>Pasos</i> y <i>Ejercicio</i>.</li>
+      <li><b>Si usas reloj o pulsera</b>Activa en su app que comparta datos con Health Connect. Samsung Health: Ajustes › Health Connect. Fitbit: Cuenta › Health Connect. Garmin Connect: Más › Ajustes › Health Connect.</li>
+    </ol>
+  </section>
+
+  <section class="card">
+    <h2>Qué te pedimos</h2>
+    <ul>
+      <li>Úsala con normalidad 3 o 4 días.</li>
+      <li>Comprueba si los pasos de la app coinciden con los de tu reloj o su app.</li>
+      <li>Cuéntanos si se entiende cómo se ganan las Vitas y las misiones, y qué te motivaría más.</li>
+      <li>Si algo falla: pulsa el icono de diagnóstico (arriba a la derecha) › «Copiar informe» y envíanoslo.</li>
+    </ul>
+  </section>
+
+  <section class="note">
+    <b>Privacidad.</b> Esta versión funciona solo en tu móvil: lee tus pasos y tu ejercicio de Health Connect y <b>no envía ningún dato a ningún servidor</b>. Las pestañas <i>Reto</i> y <i>Muro</i> (ranking con compañeros) se activarán en una versión posterior.<br><br>
+    <b>Actualizaciones.</b> Para instalar una versión nueva, desinstala antes la anterior.
+  </section>
+
+  <footer>Prototipo interno de Vitaly · <a href="./">Ver la maqueta del panel de empresa</a></footer>
+</main>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script>
+  // El QR lleva a esta misma página, para leer las instrucciones en el móvil.
+  if (window.QRCode) {
+    new QRCode(document.getElementById("qr"), {
+      text: "https://wmunny.github.io/vitalink-retos-demo/app.html",
+      width: 148, height: 148, colorDark: "#17201C", colorLight: "#FFFFFF", correctLevel: QRCode.CorrectLevel.M,
+    });
+  } else {
+    document.querySelector(".qr").hidden = true;
+  }
+</script>
+</body>
+</html>

@@ -8,3 +8,8 @@ actividad, informes y ajustes de privacidad.
 Todos los datos son ficticios y nada se guarda. Abre `index.html` o la página publicada.
 Enlaces directos: `#retos`, `#nuevo-reto`, `#clasificaciones`, `#comunicacion`, `#premios`,
 `#verificacion`, `#informes`, `#ajustes`.
+
+## App de prueba (Android)
+
+Página de descarga con instrucciones: `app.html`. La APK se publica como *release*; el enlace
+`releases/latest/download/Vitalink-Retos.apk` apunta siempre a la última versión.
