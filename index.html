@@ -19,6 +19,7 @@
   body { background: var(--ground); color: var(--ink); font: 15px/1.45 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
   button, input, select, textarea { font: inherit; color: inherit; }
   a { color: var(--brand); }
+  a.btn { text-decoration: none; }
 
   .demo-banner { background: var(--ink); color: #fff; font-size: 13px; padding: 7px 16px; text-align: center; }
   .demo-banner b { color: #8FE0BF; }
@@ -187,11 +188,144 @@
 
   svg.chart text { font-size: 11px; fill: var(--muted); }
 
+  /* App de la plantilla: réplica de la app Android (Flutter, Material 3) */
+  .nav-sep { height: 1px; background: var(--line); margin: 10px 8px; }
+  .appsim { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 28px; align-items: start; }
+  .m-device { width: 372px; border-radius: 46px; background: #121614; padding: 12px; box-shadow: 0 24px 50px rgba(16,40,30,.22); position: sticky; top: 20px; }
+  .m-screen { position: relative; height: clamp(600px, calc(100vh - 170px), 760px); border-radius: 35px; overflow: hidden; background: var(--ground); display: flex; flex-direction: column; font-family: Roboto, system-ui, -apple-system, "Segoe UI", sans-serif; font-size: 14px; color: var(--ink); }
+  .m-status { display: flex; justify-content: space-between; padding: 10px 24px 4px; font-size: 12px; font-weight: 600; }
+  .m-bar { display: flex; align-items: center; gap: 2px; min-height: 56px; padding: 4px 6px 4px 16px; }
+  .m-bar b { flex: 1; font-size: 22px; font-weight: 800; }
+  .m-bar .m-ib:first-child + b { padding-left: 4px; }
+  .m-ib { width: 42px; height: 42px; border-radius: 50%; border: 0; background: none; display: grid; place-items: center; cursor: pointer; color: #3F4945; flex: none; }
+  .m-ib:hover { background: rgba(15,122,92,.08); }
+  .m-ib svg, .m-nav svg { width: 22px; height: 22px; }
+  .m-ib.spin svg { animation: m-spin .8s linear infinite; }
+  @keyframes m-spin { to { transform: rotate(360deg); } }
+  .m-body { flex: 1; overflow-y: auto; padding: 4px 16px 24px; scrollbar-width: thin; }
+  .m-nav { display: flex; background: #E9EFEB; padding: 12px 4px 16px; }
+  .m-nav button { flex: 1; border: 0; background: none; display: grid; justify-items: center; gap: 4px; font-size: 12px; font-weight: 600; color: #3F4945; cursor: pointer; padding: 0; }
+  .m-nav .ind { width: 60px; height: 32px; border-radius: 999px; display: grid; place-items: center; }
+  .m-nav [aria-current] { color: var(--ink); font-weight: 800; }
+  .m-nav [aria-current] .ind { background: #BFE9D6; color: #0A3D2E; }
+  .m-card { background: #fff; border: 1px solid var(--line); border-radius: 20px; padding: 16px; }
+  .m-card.mint { background: var(--brand-soft); }
+  .m-card.warm { background: #FFF6EE; }
+  .m-card + .m-card { margin-top: 10px; }
+  .m-sec { font-size: 17px; font-weight: 800; margin: 14px 0 6px; }
+  .m-muted { color: #55625D; line-height: 1.45; }
+  .m-small { font-size: 12px; color: #55625D; }
+  .m-center { text-align: center; }
+  .m-ring { position: relative; width: 200px; height: 200px; margin: 0 auto 14px; }
+  .m-ring svg { width: 200px; height: 200px; }
+  .m-ring circle { fill: none; stroke-width: 16; stroke-linecap: round; transition: stroke-dasharray .5s; }
+  .m-ring > div { position: absolute; inset: 0; display: grid; place-content: center; text-align: center; }
+  .m-ring b { font-size: 36px; font-weight: 800; line-height: 1.1; }
+  .m-ring span { color: #55625D; }
+  .m-ring small { font-size: 11px; color: #55625D; }
+  .m-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 10px; }
+  .m-stats > div { background: var(--ground); border-radius: 14px; padding: 10px 4px; display: grid; }
+  .m-stats b { font-size: 18px; font-weight: 800; }
+  .m-stats span { font-size: 12px; color: #55625D; }
+  .m-stats .warm { background: #FFF1E6; }
+  .m-stats .warm b { color: #9A4A0E; }
+  .m-stats .warm span { color: #7A3D0D; }
+  .m-line { display: flex; gap: 10px; padding: 5px 0; }
+  .m-line span { flex: 1; }
+  .m-line b, .m-kv b { font-weight: 800; }
+  .m-bars { display: flex; align-items: flex-end; height: 150px; }
+  .m-bars > div { flex: 1; display: grid; justify-items: stretch; gap: 6px; padding: 0 2px; text-align: center; font-size: 11px; color: #55625D; }
+  .m-bars i { display: block; border-radius: 4px; background: #B9C4BF; transition: height .5s; }
+  .m-bars i.on { background: var(--brand); }
+  .m-progress { height: 8px; border-radius: 8px; background: var(--line); overflow: hidden; margin: 10px 0 6px; }
+  .m-progress i { display: block; height: 100%; background: var(--brand); border-radius: 8px; }
+  .m-head { display: flex; gap: 10px; font-weight: 700; }
+  .m-head span { flex: 1; }
+  .m-head b { color: var(--brand-dark); font-weight: 800; white-space: nowrap; }
+  .m-badges { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .m-badges > div { background: #fff; border: 1px solid var(--line); border-radius: 20px; padding: 14px 6px; text-align: center; display: grid; justify-items: center; gap: 2px; }
+  .m-badges .off { opacity: .5; }
+  .m-badges i { width: 40px; height: 40px; border-radius: 50%; background: var(--brand); color: #fff; display: grid; place-items: center; font-style: normal; font-size: 18px; margin-bottom: 4px; }
+  .m-badges .off i { background: #7D8A85; }
+  .m-badges b { font-size: 12px; }
+  .m-badges span { font-size: 11px; color: #55625D; }
+  .m-btn { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; min-height: 50px; border-radius: 999px; border: 1px solid transparent; background: var(--brand); color: #fff; font-weight: 600; cursor: pointer; margin-top: 8px; }
+  .m-btn:disabled { background: #DCE2DF; color: #8C9692; cursor: default; }
+  .m-btn.outline { background: none; border-color: #6F7975; color: var(--brand-dark); }
+  .m-btn.text { background: none; color: var(--brand-dark); min-height: 40px; }
+  .m-btn svg { width: 18px; height: 18px; }
+  .m-hero-icon { display: grid; justify-items: center; color: var(--brand); margin: 12px 0; }
+  .m-hero-icon svg { width: 52px; height: 52px; }
+  .m-title { font-size: 22px; font-weight: 800; text-align: center; margin: 0 0 8px; }
+  .m-field { position: relative; display: block; margin: 16px 0 4px; }
+  .m-field span { position: absolute; top: -8px; left: 10px; padding: 0 4px; background: var(--ground); font-size: 12px; color: #55625D; }
+  .m-field input { width: 100%; height: 54px; border: 1px solid #6F7975; border-radius: 6px; background: none; padding: 0 14px; font-size: 16px; }
+  .m-field input:focus { outline: 2px solid var(--brand); outline-offset: -2px; }
+  .m-help { font-size: 12px; color: #55625D; margin: 0 0 4px 16px; }
+  .m-row { display: flex; gap: 8px; align-items: flex-end; }
+  .m-row .m-field { flex: 1; }
+  .m-row .m-btn { width: auto; padding: 0 18px; min-height: 54px; margin: 0 0 4px; border-radius: 999px; }
+  .m-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .m-chip { border: 1px solid #6F7975; background: none; border-radius: 8px; padding: 6px 12px; font-size: 13px; font-weight: 600; cursor: pointer; color: #3F4945; }
+  .m-chip[aria-pressed="true"] { background: #CDE8DC; border-color: #CDE8DC; color: #0A3D2E; }
+  .m-chip[aria-pressed="true"]::before { content: "✓ "; }
+  .m-check { display: flex; gap: 12px; align-items: center; width: 100%; text-align: left; border: 0; background: none; padding: 12px 0; cursor: pointer; font-size: 15px; }
+  .m-check i { width: 20px; height: 20px; border: 2px solid #3F4945; border-radius: 3px; flex: none; display: grid; place-items: center; font-style: normal; font-size: 13px; color: #fff; }
+  .m-check[aria-checked="true"] i { background: var(--brand); border-color: var(--brand); }
+  .m-seg { display: flex; border: 1px solid #6F7975; border-radius: 999px; overflow: hidden; }
+  .m-seg button { flex: 1; border: 0; background: none; padding: 10px 4px; font-weight: 600; cursor: pointer; color: #3F4945; font-size: 13px; }
+  .m-seg button + button { border-left: 1px solid #6F7975; }
+  .m-seg [aria-pressed="true"] { background: #CDE8DC; color: #0A3D2E; }
+  .m-seg [aria-pressed="true"]::before { content: "✓ "; }
+  .m-rank { display: flex; align-items: center; gap: 0; background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 10px 12px; margin-bottom: 6px; }
+  .m-rank.me { background: var(--brand-soft); border-color: var(--brand); }
+  .m-rank .pos { width: 32px; font-size: 16px; font-weight: 800; color: #55625D; flex: none; }
+  .m-rank .who { flex: 1; min-width: 0; }
+  .m-rank .who b { display: block; font-weight: 700; }
+  .m-rank .who span { font-size: 12px; color: #55625D; }
+  .m-rank > b { color: var(--brand-dark); font-weight: 800; white-space: nowrap; }
+  .m-gap { text-align: center; color: #55625D; letter-spacing: 3px; margin: 2px 0 8px; }
+  .m-post { display: flex; gap: 12px; align-items: flex-start; }
+  .m-post .av { width: 40px; height: 40px; border-radius: 50%; background: var(--brand-soft); color: var(--brand); display: grid; place-items: center; font-weight: 600; flex: none; }
+  .m-post .av.org { background: var(--brand); color: #fff; }
+  .m-post .txt { flex: 1; min-width: 0; line-height: 1.4; }
+  .m-post .clap { display: grid; justify-items: center; font-size: 12px; color: #55625D; }
+  .m-post .clap .m-ib { font-size: 20px; filter: grayscale(1); opacity: .6; }
+  .m-post .clap .m-ib.on { filter: none; opacity: 1; }
+  .m-kv { display: flex; gap: 10px; padding: 4px 0; }
+  .m-kv span { flex: 1; color: #55625D; }
+  .m-snack { position: absolute; left: 12px; right: 12px; bottom: 96px; background: #2E3330; color: #fff; border-radius: 6px; padding: 14px 16px; font-size: 14px; box-shadow: 0 4px 12px rgba(0,0,0,.25); animation: m-in .2s ease-out; z-index: 5; }
+  .m-screen.nonav .m-snack { bottom: 16px; }
+  @keyframes m-in { from { transform: translateY(12px); opacity: 0; } }
+  .m-overlay { position: absolute; inset: 0; background: rgba(0,0,0,.42); display: grid; place-items: center; z-index: 6; }
+  .m-dialog { background: #EEF4F0; border-radius: 28px; padding: 24px; width: calc(100% - 48px); }
+  .m-dialog h3 { margin: 0 0 14px; font-size: 22px; font-weight: 500; }
+  .m-dialog p { margin: 0 0 20px; color: #3F4945; line-height: 1.45; }
+  .m-dialog .acts { display: flex; justify-content: flex-end; gap: 8px; }
+  .m-dialog .acts .m-btn { width: auto; padding: 0 18px; min-height: 40px; margin: 0; }
+  .m-hc { position: absolute; inset: 0; background: #fff; z-index: 6; display: flex; flex-direction: column; padding: 46px 24px 24px; animation: m-in .2s ease-out; }
+  .m-hc .logo-row { display: flex; align-items: center; gap: 10px; justify-content: center; color: #1A73E8; font-weight: 600; margin-bottom: 26px; }
+  .m-hc .logo-row svg { width: 28px; height: 28px; }
+  .m-hc h3 { font-size: 22px; font-weight: 500; text-align: center; margin: 0 0 8px; }
+  .m-hc .perm { display: flex; align-items: center; gap: 14px; padding: 14px 0; border-bottom: 1px solid #E6E8EA; }
+  .m-hc .perm span { flex: 1; }
+  .m-hc .perm .switch { display: inline-block; flex: none; background: #1A73E8; }
+  .m-hc .acts { margin-top: auto; display: grid; gap: 8px; }
+  .m-hc .m-btn { background: #1A73E8; margin: 0; }
+  .m-hc .m-btn.text { background: none; color: #1A73E8; }
+  .m-tour { display: flex; gap: 12px; align-items: flex-start; width: 100%; text-align: left; border: 1px solid var(--line); background: #fff; border-radius: 12px; padding: 11px 12px; cursor: pointer; margin-bottom: 8px; }
+  .m-tour:hover { border-color: #A9CDBE; background: var(--brand-softer); }
+  .m-tour .n { width: 26px; height: 26px; border-radius: 50%; background: var(--brand-soft); color: var(--brand-dark); display: grid; place-items: center; font-weight: 800; font-size: 13px; flex: none; }
+  .m-tour b { display: block; font-size: 14px; }
+  .m-tour span { font-size: 13px; color: var(--muted); }
+
   @media (max-width: 1100px) {
     .g4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .g3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .wizard { grid-template-columns: 1fr; }
     .phone { position: static; }
+    .appsim { grid-template-columns: 1fr; }
+    .m-device { position: static; margin: 0 auto; }
   }
   @media (max-width: 860px) {
     .app { grid-template-columns: minmax(0, 1fr); }
@@ -200,6 +334,7 @@
     .logo { padding-bottom: 10px; }
     nav { display: flex; gap: 4px; overflow-x: auto; padding-bottom: 4px; }
     nav button { width: auto; white-space: nowrap; }
+    .nav-sep { display: none; }
     .company-box { display: none; }
     main { padding: 18px 16px 48px; }
     .g2, .g3 { grid-template-columns: 1fr; }
@@ -213,6 +348,8 @@
     .challenge .art { width: 100%; height: 72px; }
     .flag { grid-template-columns: auto 1fr; }
     .flag .actions { grid-column: 1 / -1; }
+    .m-device { width: 100%; max-width: 372px; padding: 8px; border-radius: 40px; }
+    .m-screen { height: 680px; border-radius: 32px; }
   }
 </style>
 </head>
@@ -263,6 +400,7 @@ const ICONS = {
   verificacion: '<path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/>',
   informes: '<path d="M6 3h9l4 4v14H6z"/><path d="M9 13h6M9 17h6M9 9h3"/>',
   ajustes: '<circle cx="12" cy="12" r="3"/><path d="M12 2v3m0 14v3M2 12h3m14 0h3M4.9 4.9 7 7m10 10 2.1 2.1M4.9 19.1 7 17M17 7l2.1-2.1"/>',
+  app: '<rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M11 18h2"/>',
 };
 const icon = (k) => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICONS[k]}</svg>`;
 
@@ -360,10 +498,11 @@ function newWizard() {
 const VIEWS = [
   ["inicio", "Inicio"], ["retos", "Retos"], ["clasificaciones", "Clasificaciones"], ["comunicacion", "Comunicación"],
   ["premios", "Premios"], ["verificacion", "Verificación"], ["informes", "Informes"], ["ajustes", "Ajustes"],
+  ["app", "App de la plantilla"],
 ];
 
 function renderNav() {
-  $("#nav").innerHTML = VIEWS.map(([id, label]) => `
+  $("#nav").innerHTML = VIEWS.map(([id, label]) => `${id === "app" ? '<div class="nav-sep"></div>' : ""}
     <button data-go="${id}" ${state.view === id ? 'aria-current="page"' : ""}>${icon(id)}${label}
       ${id === "verificacion" && state.flags.length ? `<span class="nav-badge">${state.flags.length}</span>` : ""}
     </button>`).join("");
@@ -807,9 +946,392 @@ function viewWizard() {
     </div><div><p class="meta" style="text-align:center;margin-top:0">Así lo verá la plantilla</p>${wizardPreview(w)}</div></div>`;
 }
 
+// ------------------------------------------------------------------ app de la plantilla (simulación)
+// Réplica de la app Android (vitaly-retos/lib): mismas pantallas, textos y reglas de Vitas,
+// con 14 días de actividad ficticia de una persona de Logística. Hoy es el martes 27 de octubre.
+const APP_START = new Date(2026, 9, 14);
+const APP_STEPS = [7420, 9310, 6120, 11240, 4380, 8650, 10420, 8920, 12310, 9870, 8150, 13480, 10240, 6240];
+const APP_MINUTES = [0, 30, 0, 45, 0, 20, 35, 0, 40, 25, 0, 60, 30, 25];
+const APP_TABS = [["walk", "Hoy"], ["rank", "Reto"], ["forum", "Muro"], ["flag", "Misiones"], ["trophy", "Logros"]];
+const WD = ["L", "M", "X", "J", "V", "S", "D"];
+// Vitas del reto sin contar las de hoy; las de hoy se suman en vivo.
+const ME = { name: "Sara C.", team: "Logística", email: "sara.c@empresademo.es", vitasBefore: 279, stepsBefore: 225160 };
+
+const MICONS = {
+  walk: '<circle cx="13" cy="4" r="2"/><path d="M8 21l3-7 3 3v4M7 12l2.5-4.5 4 1 2 3.5 3 1M11 14l-1-5"/>',
+  rank: '<path d="M4 20v-8h5v8M9 20V5h6v15M15 20v-10h5v10"/>',
+  forum: '<path d="M3 4h13v9H7l-4 3zM20 8v12l-3-3H8v-2"/>',
+  flag: '<path d="M5 21V4h12l-2.5 4L17 12H5"/>',
+  trophy: '<path d="M8 3h8v6a4 4 0 0 1-8 0zM8 5H4v1a4 4 0 0 0 4 4M16 5h4v1a4 4 0 0 1-4 4M12 13v4M8 21h8M9 17h6v4H9z"/>',
+  sync: '<path d="M20 11A8 8 0 0 0 6.3 6.3L4 8.5M4 4v4.5h4.5M4 13a8 8 0 0 0 13.7 4.7L20 15.5M20 20v-4.5h-4.5"/>',
+  diag: '<circle cx="10" cy="10" r="7"/><path d="M15 15l6 6M6 10h2l1.2-2.5 1.8 5 1.2-2.5H14"/>',
+  back: '<path d="M20 12H4m6-6-6 6 6 6"/>',
+  heart: '<path d="M12 20s-8-4.6-8-10.5A4.5 4.5 0 0 1 12 7a4.5 4.5 0 0 1 8 2.5C20 15.4 12 20 12 20z"/>',
+  groups: '<circle cx="12" cy="8" r="3"/><circle cx="5" cy="10" r="2"/><circle cx="19" cy="10" r="2"/><path d="M6 20v-2a6 6 0 0 1 12 0v2M1.5 18v-1a3.5 3.5 0 0 1 4-3.4M22.5 18v-1a3.5 3.5 0 0 0-4-3.4"/>',
+  person: '<circle cx="12" cy="8" r="4"/><path d="M4 21v-1a7 7 0 0 1 14 0v1"/>',
+  copy: '<rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h3"/>',
+  logout: '<path d="M14 4h5v16h-5M10 8l-4 4 4 4M6 12h10"/>',
+};
+const micon = (k) => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${MICONS[k]}</svg>`;
+const clock = () => new Date().toLocaleTimeString("es-ES", { hour: "2-digit", minute: "2-digit" });
+
+function newPhone(firstUse = false) {
+  return {
+    tab: 0, screen: "main", sheet: null, snack: "", syncing: false,
+    connected: !firstUse, social: firstUse ? "signedOut" : "joined",
+    steps: [...APP_STEPS], minutes: [...APP_MINUTES], personalGoal: 8000, lastSync: clock(),
+    byTeam: false, claps: new Set(),
+    join: { code: company.code, found: false, msg: "", name: firstUse ? "" : ME.name, team: null, consent: false },
+  };
+}
+state.phone = newPhone();
+
+// Dentro de un reto, el objetivo diario lo fija la empresa para que todos compitan igual.
+const appGoal = (p) => (p.social === "joined" ? state.challenges[0].goalSteps : p.personalGoal);
+const joinReady = (j) => j.found && j.team && j.consent && j.name.trim() !== "";
+
+// Mismo cálculo que Summary en scoring.dart.
+function appSummary(p) {
+  const goal = appGoal(p);
+  let prev = 0;
+  const scores = p.steps.map((steps, i) => {
+    const day = new Date(APP_START.getFullYear(), APP_START.getMonth(), APP_START.getDate() + i);
+    const met = steps >= goal, streak = met ? prev + 1 : 0;
+    prev = streak;
+    const sv = Math.min(Math.floor(steps / 1000), 15), mv = Math.min(Math.floor(p.minutes[i] / 10), 6);
+    const gv = met ? 3 : 0, kv = met ? Math.min(streak - 1, 5) : 0;
+    return { day, steps, minutes: p.minutes[i], met, streak, sv, mv, gv, kv, total: sv + mv + gv + kv };
+  });
+  const today = scores[scores.length - 1];
+  const currentStreak = today.met || scores.length < 2 ? today.streak : scores[scores.length - 2].streak;
+  const maxStreak = Math.max(...scores.map((s) => s.streak));
+  const totalSteps = scores.reduce((t, s) => t + s.steps, 0);
+  const totalMinutes = scores.reduce((t, s) => t + s.minutes, 0);
+  const monday = new Date(today.day.getFullYear(), today.day.getMonth(), today.day.getDate() - ((today.day.getDay() + 6) % 7));
+  const week = scores.filter((s) => s.day >= monday);
+  const missions = [
+    { title: "10.000 pasos 3 días esta semana", current: week.filter((s) => s.steps >= 10000).length, target: 3, reward: 10, unit: "días" },
+    { title: "Cumple tu objetivo 5 días esta semana", current: week.filter((s) => s.met).length, target: 5, reward: 15, unit: "días" },
+    { title: "150 minutos de ejercicio esta semana", current: week.reduce((t, s) => t + s.minutes, 0), target: 150, reward: 5, unit: "min" },
+  ].map((m) => ({ ...m, done: m.current >= m.target }));
+  const achievements = [
+    ["50.000 pasos", "en 14 días", totalSteps >= 50000], ["100.000 pasos", "en 14 días", totalSteps >= 100000],
+    ["Racha de 3", "días con objetivo", maxStreak >= 3], ["Racha de 7", "días con objetivo", maxStreak >= 7],
+    ["Día de 15.000", "pasos en un día", scores.some((s) => s.steps >= 15000)], ["150 min", "de ejercicio", totalMinutes >= 150],
+  ];
+  const balance = scores.reduce((t, s) => t + s.total, 0) + missions.filter((m) => m.done).reduce((t, m) => t + m.reward, 0);
+  return { goal, scores, today, currentStreak, maxStreak, totalSteps, missions, achievements, balance };
+}
+
+function appConnect() {
+  return `<div class="m-hero-icon">${micon("heart")}</div>
+    <h2 class="m-title">Conecta tus pasos</h2>
+    <p class="m-muted m-center">Vitalink Retos lee tus pasos y tus sesiones de ejercicio desde Health Connect, donde llegan los datos del móvil y de tu reloj o pulsera. Solo lectura. Si te unes a un reto de empresa, se comparten únicamente tus totales diarios.</p>
+    <button class="m-btn" style="min-height:52px;margin:20px 0 24px" data-app="connect">Dar permiso a Health Connect</button>
+    ${appWearableHelp()}`;
+}
+
+function appWearableHelp() {
+  return `<div class="m-card mint"><b>¿Usas reloj o pulsera?</b><div style="margin-top:6px;line-height:1.5">Activa en la app de tu reloj que comparta los pasos con Health Connect:<br>
+    • Samsung Health: Ajustes › Health Connect.<br>• Fitbit: Cuenta › Health Connect.<br>• Garmin Connect: Más › Ajustes › Health Connect (según versión).<br>
+    • Xiaomi / Zepp / Huawei: busca «Health Connect» en sus ajustes.<br>Luego abre la app del reloj para que sincronice y pulsa ⟳ aquí.</div></div>`;
+}
+
+function appToday(s, p) {
+  const t = s.today, C = 2 * Math.PI * 92, pv = Math.min(t.steps / s.goal, 1);
+  const max = Math.max(s.goal, ...s.scores.map((x) => x.steps));
+  const lines = [
+    ["Pasos (1 Vita / 1.000, máx. 15)", t.sv], ["Ejercicio (1 Vita / 10 min, máx. 6)", t.mv],
+    ["Objetivo diario cumplido", t.gv], ["Bonus de racha (máx. 5)", t.kv],
+  ];
+  return `<div class="m-card m-center">
+      <div class="m-ring"><svg viewBox="0 0 200 200"><circle cx="100" cy="100" r="92" stroke="#E2E7E4"/><circle cx="100" cy="100" r="92" stroke="#0F7A5C" stroke-dasharray="${C * pv} ${C}" transform="rotate(-90 100 100)"/></svg>
+        <div><b>${fmt(t.steps)}</b><span>de ${fmt(s.goal)} pasos</span>${p.social === "joined" ? "<small>objetivo del reto</small>" : ""}</div></div>
+      <div class="m-stats"><div><b>+${t.total}</b><span>Vitas hoy</span></div><div class="warm"><b>${s.currentStreak} d</b><span>racha</span></div><div><b>${t.minutes} min</b><span>ejercicio</span></div></div>
+      <div class="m-small">Sincronizado a las ${p.lastSync} · Health Connect</div>
+    </div>
+    <div class="m-sec">Desglose de hoy</div>
+    <div class="m-card">${lines.map(([l, v]) => `<div class="m-line"><span>${l}</span><b>+${v}</b></div>`).join("")}</div>
+    <div class="m-sec">Últimos 14 días</div>
+    <div class="m-card"><div class="m-bars">${s.scores.map((x) => `<div title="${x.day.getDate()} oct: ${fmt(x.steps)} pasos"><i class="${x.met ? "on" : ""}" style="height:${2 + (118 * x.steps) / max}px"></i>${WD[(x.day.getDay() + 6) % 7]}</div>`).join("")}</div></div>
+    <p class="m-small" style="margin:6px 0 0">Verde: día con objetivo cumplido.</p>`;
+}
+
+function appMissions(s) {
+  return `<p class="m-muted" style="margin:0 0 10px">Se reinician cada lunes.</p>
+    ${s.missions.map((m) => `<div class="m-card ${m.done ? "mint" : ""}">
+      <div class="m-head"><span>${m.title}</span><b>${m.done ? "Conseguida" : `+${m.reward} Vitas`}</b></div>
+      <div class="m-progress"><i style="width:${Math.min(100, (100 * m.current) / m.target)}%"></i></div>
+      <div class="m-small">${Math.min(m.current, m.target)} / ${m.target} ${m.unit}</div></div>`).join("")}
+    <div class="m-sec">Cómo se ganan Vitas</div>
+    <div class="m-card" style="line-height:1.6">• 1 Vita por cada 1.000 pasos (máx. 15 al día).<br>• 1 Vita por cada 10 min de ejercicio registrado (máx. 6 al día).<br>• +3 al cumplir tu objetivo diario.<br>• +1 por cada día seguido de racha (máx. +5).<br>• Los pasos introducidos a mano no cuentan.</div>`;
+}
+
+function appAchievements(s) {
+  return `<div class="m-card"><div class="m-muted">Saldo (últimos 14 días)</div>
+      <div style="font-size:30px;font-weight:800">${fmt(s.balance)} Vitas</div>
+      <div class="m-small">${fmt(s.totalSteps)} pasos · racha máxima ${s.maxStreak} días</div></div>
+    <div class="m-sec">Insignias</div>
+    <div class="m-badges">${s.achievements.map(([n, d, on]) => `<div class="${on ? "" : "off"}"><i>★</i><b>${n}</b><span>${d}</span></div>`).join("")}</div>
+    <div class="m-card warm" style="margin-top:16px;line-height:1.5">Próximamente: tienda de premios para canjear tus Vitas.</div>`;
+}
+
+function appAccount() {
+  return `<div class="m-hero-icon">${micon("groups")}</div>
+    <h2 class="m-title">Compite con tu empresa</h2>
+    <p class="m-muted m-center">Entra con tu correo de trabajo para unirte al reto de tu empresa, ver la clasificación y el muro de logros. La cuenta sirve para no perder tu sitio si reinstalas la app.</p>
+    <label class="m-field"><span>Correo</span><input type="email" value="${ME.email}"></label>
+    <label class="m-field" style="margin-top:14px"><span>Contraseña</span><input type="password" value="demo1234"></label>
+    <p class="m-help">Mínimo 6 caracteres</p>
+    <button class="m-btn" style="margin-top:14px" data-app="signin">Entrar</button>
+    <button class="m-btn outline" data-app="signin">Crear cuenta</button>
+    <button class="m-btn text" data-app="snack" data-msg="Te hemos enviado un correo para cambiar la contraseña.">He olvidado mi contraseña</button>`;
+}
+
+function appJoin(p) {
+  const j = p.join, c = state.challenges[0];
+  const d = (s) => new Date(s + "T00:00").toLocaleDateString("es-ES", { day: "numeric", month: "short" }).replace(".", "");
+  const consent = "Al unirte compartes con tu empresa, dentro de Vitalink Retos:<br>• El nombre que elijas y tu equipo.<br>• Tus totales diarios de pasos, minutos de ejercicio y Vitas.<br>• Los logros que consigas (objetivo cumplido, rachas, misiones).<br><br>Tus compañeros verán tu posición en la clasificación y tus logros en el muro. El panel de RRHH muestra solo totales por equipo; los equipos de menos de 5 personas se agrupan. No se comparte ubicación, frecuencia cardiaca ni el detalle de tus entrenamientos.<br><br>Es una prueba interna. Puedes salir y borrar tus datos cuando quieras desde Reto › Salir del reto.";
+  return `<h2 style="font-size:22px;font-weight:800;margin:6px 0">Únete al reto de tu empresa</h2>
+    <p class="m-muted" style="margin:0">RRHH te habrá enviado un código de empresa.</p>
+    <div class="m-row"><label class="m-field"><span>Código de empresa</span><input data-appin="code" value="${esc(j.code)}" style="text-transform:uppercase"></label>
+      <button class="m-btn" data-app="find">Buscar</button></div>
+    ${j.msg ? `<p class="m-muted">${j.msg}</p>` : ""}
+    ${j.found ? `<div class="m-card mint" style="margin-top:16px"><div style="font-size:18px;font-weight:800">${company.name}</div><div class="m-muted">${esc(c.name)} · ${d(c.start)}–${d(c.end)}</div></div>
+      <label class="m-field" style="margin-top:20px"><span>Nombre visible</span><input data-appin="name" maxlength="30" value="${esc(j.name)}"></label>
+      <p class="m-help">Lo verán tus compañeros. Puede ser un apodo.</p>
+      <div class="m-sec">Tu equipo</div>
+      <div class="m-chips">${departments.map((t) => `<button class="m-chip" data-app="team" data-v="${t.name}" aria-pressed="${j.team === t.name}">${t.name}</button>`).join("")}</div>
+      <div class="m-sec">Qué se comparte</div>
+      <div class="m-card" style="line-height:1.45">${consent}</div>
+      <button class="m-check" role="checkbox" aria-checked="${j.consent}" data-app="consent"><i>${j.consent ? "✓" : ""}</i>He leído qué se comparte y acepto participar</button>
+      <button class="m-btn" id="m-join" data-app="join" ${joinReady(j) ? "" : "disabled"}>Unirme al reto</button>` : ""}
+    <button class="m-btn text" style="margin-top:16px" data-app="signout">Cerrar sesión (${ME.email})</button>`;
+}
+
+function appChallenge(p, s) {
+  const c = state.challenges[0];
+  const d = (x) => new Date(x + "T00:00").toLocaleDateString("es-ES", { day: "numeric", month: "short" }).replace(".", "");
+  const me = { name: ME.name, team: ME.team, vitas: ME.vitasBefore + s.today.total, steps: ME.stepsBefore + s.today.steps, me: true };
+  const top = people.map(([name, team, vitas]) => ({ name, team, vitas, steps: Math.round(vitas * 612 / 10) * 10 }));
+  // Vecinos de clasificación de la persona; las posiciones 11 a 21 se omiten con «···».
+  const around = [{ name: "Marcos B.", team: "Comercial", vitas: 291, steps: 236900 }, me, { name: "Elena R.", team: "IT", vitas: 281, steps: 229300 }]
+    .sort((a, b) => b.vitas - a.vitas || b.steps - a.steps);
+  const myPos = 22 + around.indexOf(me);
+  const row = (pos, title, sub, value, hl) => `<div class="m-rank ${hl ? "me" : ""}"><div class="pos">${pos}</div><div class="who"><b>${esc(title)}</b><span>${esc(sub)}</span></div><b>${value}</b></div>`;
+  const list = p.byTeam
+    ? teamRows().sort((a, b) => b.vitas - a.vitas).map((t, i) => row(i + 1, t.name.replace(/ \(.*\)/, ""), `${t.n} personas · ${fmt(t.steps * t.n * 27)} pasos`, `${fmt(t.vitas)} Vitas/pers.`, t.name === ME.team)).join("")
+    : top.map((x, i) => row(i + 1, x.name, `${x.team} · ${fmt(x.steps)} pasos`, `${fmt(x.vitas)} Vitas`, false)).join("") +
+      '<div class="m-gap">···</div>' +
+      around.map((x, i) => row(22 + i, x.name, `${x.team} · ${fmt(x.steps)} pasos`, `${fmt(x.vitas)} Vitas`, x.me)).join("");
+  return `<div class="m-card mint"><div style="font-size:20px;font-weight:800">${esc(c.name)}</div>
+      <div class="m-muted">${company.name} · ${d(c.start)}–${d(c.end)} · objetivo ${fmt(c.goalSteps)} pasos/día</div>
+      <div style="font-size:16px;font-weight:700;margin-top:10px">Vas ${myPos}º de ${c.participants} con ${fmt(me.vitas)} Vitas</div></div>
+    <div class="m-seg" style="margin:12px 0"><button data-app="byteam" data-v="0" aria-pressed="${!p.byTeam}">Personas</button><button data-app="byteam" data-v="1" aria-pressed="${p.byTeam}">Equipos</button></div>
+    ${list}
+    <p class="m-small" style="margin:8px 0 0">${p.byTeam ? "Los equipos se ordenan por la media de Vitas por persona, para que no gane el más grande." : "Cuentan las Vitas de actividad de los días del reto. Los pasos manuales no cuentan."}</p>
+    <p class="m-small" style="margin:0">Tus datos se subieron por última vez a las ${p.lastSync}.</p>
+    <button class="m-btn outline" style="margin-top:20px" data-app="leave">${micon("logout")}Salir del reto y borrar mis datos</button>
+    <button class="m-btn text" data-app="signout">Cerrar sesión (${ME.email})</button>`;
+}
+
+function appFeed(p) {
+  const teamOf = (po) => po.who === "org" ? "Comunicado de RRHH" : po.team || (people.find((x) => x[0] === po.name) || [])[1] || po.name.replace("Equipo ", "");
+  return `<p class="m-muted" style="margin:0 0 10px">Los logros de tus compañeros aparecen aquí solos. Los aplausos son visibles para todos.</p>
+    ${state.posts.map((po, i) => {
+      const on = p.claps.has(po.name + "|" + po.text);
+      return `<div class="m-card m-post"><div class="av ${po.who === "org" ? "org" : ""}">${esc(po.name[0].toUpperCase())}</div>
+        <div class="txt"><b>${esc(po.name)}</b> ${esc(po.text)}<div class="m-small" style="margin-top:4px">${esc(teamOf(po))} · ${esc(po.when)}</div></div>
+        <div class="clap"><button class="m-ib ${on ? "on" : ""}" data-app="clap" data-v="${i}" aria-label="Aplaudir" aria-pressed="${on}">🎉</button>${po.claps + (on ? 1 : 0)}</div></div>`;
+    }).join("")}`;
+}
+
+function appDiag(p, s) {
+  const t = s.today.steps, watch = Math.round(t * 0.9), phone = Math.round(t * 0.47);
+  const kv = (k, v) => `<div class="m-kv"><span>${k}</span><b>${v}</b></div>`;
+  return `<div class="m-card">
+      ${kv("Health Connect", "disponible")}${kv("Permisos", p.connected ? "concedidos" : "pendientes")}${kv("Historial >30 días", p.connected ? "true" : "—")}
+      ${kv("Pasos hoy (sin duplicados)", p.connected ? fmt(t) : "0")}${kv("Suma bruta de registros", p.connected ? fmt(watch + phone) : "0")}
+      ${kv("Sesiones de ejercicio (14 d)", p.connected ? s.scores.filter((x) => x.minutes).length : 0)}${kv("Última sincronización", p.connected ? p.lastSync : "nunca")}
+      ${kv("Servidor de retos", p.social)}${kv("Última subida al reto", p.social === "joined" ? p.lastSync : "nunca")}
+      ${p.connected ? "" : '<button class="m-btn" data-app="connect">Dar permiso</button>'}</div>
+    <div class="m-sec">¿De dónde vienen los pasos de hoy?</div>
+    <div class="m-card">${p.connected ? `
+      <div style="padding:6px 0"><b>Samsung Health</b><div class="m-small">${fmt(watch)} pasos · 41 registros · reloj</div><div class="m-small" style="font-size:11px">com.sec.android.app.shealth</div></div>
+      <div style="padding:6px 0"><b>Android</b><div class="m-small">${fmt(phone)} pasos · 23 registros · automático</div><div class="m-small" style="font-size:11px">android</div></div>
+      <p class="m-small" style="line-height:1.4;margin:6px 0 0">Si el móvil y el reloj cuentan los mismos pasos, la suma bruta es mayor que el total: Health Connect elimina esos duplicados y la app usa el total.</p>`
+      : '<span class="m-muted">Sin registros de pasos hoy.</span>'}</div>
+    <div class="m-sec">Objetivo diario</div>
+    ${p.social === "joined" ? `<p class="m-muted" style="margin:0">Fijado por el reto: ${fmt(s.goal)} pasos.</p>`
+      : `<div class="m-seg">${[6000, 8000, 10000].map((g) => `<button data-app="goal" data-v="${g}" aria-pressed="${p.personalGoal === g}">${fmt(g)}</button>`).join("")}</div>`}
+    <button class="m-btn outline" style="margin:16px 0" data-app="snack" data-msg="Informe copiado. Pégalo en un correo o en Teams.">${micon("copy")}Copiar informe para enviarlo</button>
+    ${appWearableHelp()}`;
+}
+
+function phoneHTML() {
+  const p = state.phone, s = appSummary(p), diag = p.screen === "diag";
+  const gate = (inner) => p.social === "signedOut" ? appAccount() : p.social === "noCompany" ? appJoin(p) : inner();
+  let body;
+  if (diag) body = appDiag(p, s);
+  else if (p.tab === 1) body = gate(() => appChallenge(p, s));
+  else if (p.tab === 2) body = gate(() => appFeed(p));
+  else if (!p.connected) body = appConnect();
+  else body = p.tab === 3 ? appMissions(s) : p.tab === 4 ? appAchievements(s) : appToday(s, p);
+  const bar = diag
+    ? `<button class="m-ib" data-app="back" aria-label="Volver">${micon("back")}</button><b>Diagnóstico</b>`
+    : `<b>${APP_TABS[p.tab][1]}</b><button class="m-ib ${p.syncing ? "spin" : ""}" data-app="sync" aria-label="Sincronizar">${micon("sync")}</button><button class="m-ib" data-app="diag" aria-label="Diagnóstico">${micon("diag")}</button>`;
+  const nav = diag ? "" : `<div class="m-nav">${APP_TABS.map(([ic, label], i) => `<button data-app="tab" data-v="${i}" ${p.tab === i ? 'aria-current="page"' : ""}><span class="ind">${micon(ic)}</span>${label}</button>`).join("")}</div>`;
+  const sheet = p.sheet === "hc" ? `<div class="m-hc" role="dialog" aria-label="Permisos de Health Connect">
+      <div class="logo-row">${micon("heart")} Health Connect</div>
+      <h3>¿Permitir que Vitalink Retos acceda a Health Connect?</h3>
+      <p class="m-muted m-center" style="margin:0 0 18px">Elige los datos que quieres que Vitalink Retos pueda leer</p>
+      <div class="perm"><span>Pasos</span><span class="switch" aria-checked="true"></span></div>
+      <div class="perm"><span>Ejercicio</span><span class="switch" aria-checked="true"></span></div>
+      <div class="acts"><button class="m-btn" data-app="hc-allow">Permitir</button><button class="m-btn text" data-app="hc-deny">Cancelar</button></div></div>`
+    : p.sheet === "leave" ? `<div class="m-overlay"><div class="m-dialog" role="dialog" aria-label="Salir del reto"><h3>¿Salir del reto?</h3>
+      <p>Se borrarán tu ficha, tus totales diarios, tus publicaciones y tus aplausos. Tu cuenta se mantiene y puedes volver a unirte.</p>
+      <div class="acts"><button class="m-btn text" data-app="leave-cancel">Cancelar</button><button class="m-btn" data-app="leave-ok">Salir y borrar</button></div></div></div>`
+    : "";
+  const key = [p.screen, p.tab, p.social, p.connected].join("-");
+  return `<div class="m-device" id="device" data-key="${key}" aria-label="Simulación de la app Vitalink Retos">
+    <div class="m-screen ${diag ? "nonav" : ""}">
+      <div class="m-status"><span>${clock()}</span><span>5G ▮ 87 %</span></div>
+      <div class="m-bar">${bar}</div>
+      <div class="m-body">${body}</div>
+      ${nav}${sheet}${p.snack ? `<div class="m-snack" role="status">${esc(p.snack)}</div>` : ""}
+    </div></div>`;
+}
+
+// Repinta solo el móvil y conserva el desplazamiento si se sigue en la misma pantalla.
+function renderPhone() {
+  const el = $("#device");
+  if (!el) return;
+  const key = el.dataset.key, top = el.querySelector(".m-body").scrollTop;
+  el.outerHTML = phoneHTML();
+  if ($("#device").dataset.key === key) $("#device .m-body").scrollTop = top;
+}
+
+let snackTimer;
+function appSnack(msg) {
+  state.phone.snack = msg;
+  clearTimeout(snackTimer);
+  snackTimer = setTimeout(() => { state.phone.snack = ""; renderPhone(); }, 2800);
+}
+
+// Suma actividad a hoy; si con ello se cumple el objetivo, lo celebra y publica el logro en el muro.
+function appAddActivity(steps, minutes) {
+  const p = state.phone, last = p.steps.length - 1;
+  const before = appSummary(p);
+  p.steps[last] += steps;
+  p.minutes[last] += minutes;
+  const after = appSummary(p);
+  if (!before.today.met && after.today.met) {
+    appSnack(`🎉 ¡Objetivo cumplido! +3 Vitas y racha de ${after.currentStreak} días`);
+    if (p.social === "joined") state.posts.unshift({ who: "auto", name: ME.name, team: ME.team, text: `ha cumplido su objetivo de ${fmt(after.goal)} pasos`, when: "ahora", claps: 0, channel: "Logro automático" });
+  } else if (steps) {
+    appSnack(`+${fmt(steps)} pasos · ${after.today.total - before.today.total > 0 ? `+${after.today.total - before.today.total} Vitas` : "sigue así"}`);
+  }
+}
+
+function appAction(a, d) {
+  const p = state.phone;
+  switch (a) {
+    case "tab": p.tab = Number(d.v); p.screen = "main"; break;
+    case "goto":
+      p.tab = Number(d.v); p.screen = d.screen || "main"; p.sheet = null;
+      $("#device").scrollIntoView({ behavior: "smooth", block: "nearest" });
+      break;
+    case "diag": p.screen = "diag"; break;
+    case "back": p.screen = "main"; break;
+    case "snack": appSnack(d.msg); break;
+    case "sync":
+      if (p.syncing) return;
+      p.syncing = true;
+      renderPhone();
+      setTimeout(() => {
+        p.syncing = false;
+        p.lastSync = clock();
+        if (p.connected) appAddActivity(150 + Math.round(Math.random() * 300), 0);
+        renderPhone();
+      }, 900);
+      return;
+    case "walk":
+      if (!p.connected) { p.tab = 0; p.screen = "main"; appSnack("Primero da permiso a Health Connect."); break; }
+      p.screen = "main"; p.tab = 0;
+      p.lastSync = clock();
+      appAddActivity(2000, 20);
+      break;
+    case "connect": p.sheet = "hc"; break;
+    case "hc-allow": p.sheet = null; p.connected = true; p.lastSync = clock(); p.screen = "main"; appSnack("Conectado. Se han leído tus últimos 14 días."); break;
+    case "hc-deny": p.sheet = null; break;
+    case "signin": p.social = "noCompany"; break;
+    case "signout": p.social = "signedOut"; p.join.found = false; break;
+    case "find": {
+      const ok = p.join.code.trim().toUpperCase() === company.code;
+      p.join.found = ok;
+      p.join.msg = ok ? "" : `No hay ninguna empresa con ese código. Prueba con ${company.code}.`;
+      break;
+    }
+    case "team": p.join.team = d.v; break;
+    case "consent": p.join.consent = !p.join.consent; break;
+    case "join":
+      if (!joinReady(p.join)) return;
+      p.social = "joined";
+      appSnack(`Te has unido a «${state.challenges[0].name}».`);
+      break;
+    case "byteam": p.byTeam = d.v === "1"; break;
+    case "leave": p.sheet = "leave"; break;
+    case "leave-cancel": p.sheet = null; break;
+    case "leave-ok":
+      p.sheet = null; p.social = "noCompany";
+      Object.assign(p.join, { found: false, team: null, consent: false, msg: "" });
+      appSnack("Has salido del reto. Tus datos se han borrado.");
+      break;
+    case "clap": {
+      const po = state.posts[Number(d.v)], k = po.name + "|" + po.text;
+      p.claps.has(k) ? p.claps.delete(k) : p.claps.add(k);
+      break;
+    }
+    case "goal": p.personalGoal = Number(d.v); break;
+    case "first-use": state.phone = newPhone(true); break;
+    case "reset": state.phone = newPhone(); appSnack("Demo restablecida."); break;
+  }
+  renderPhone();
+}
+
+function viewApp() {
+  const tour = [
+    ["first-use", null, "Primer uso", "Permiso de Health Connect, cuenta con el correo de trabajo y código de empresa."],
+    ["goto", 0, "Hoy", "Pasos del día frente al objetivo, Vitas ganadas, racha y los últimos 14 días."],
+    ["goto", 1, "Reto", "Clasificación del reto por personas y por equipos, con su posición destacada."],
+    ["goto", 2, "Muro", "Logros de compañeros y comunicados de RRHH. Lo que publiques en Comunicación aparece aquí."],
+    ["goto", 3, "Misiones", "Tres misiones semanales con Vitas extra y cómo se ganan Vitas."],
+    ["goto", 4, "Logros", "Saldo de Vitas e insignias conseguidas."],
+    ["goto", 0, "Diagnóstico", "De dónde vienen los pasos (móvil y reloj) y el informe para soporte.", "diag"],
+  ];
+  return head("App de la plantilla", "Así ve Vitalink Retos cada persona trabajadora en su móvil. Pulsa dentro del teléfono para navegar.",
+      `<a class="btn secondary" href="app.html">Descargar la APK</a>`) +
+    `<div class="appsim">${phoneHTML()}
+      <div class="stack">
+        <div class="card"><h2>Recorrido sugerido</h2><p class="sub">Salta a cualquier pantalla de la app.</p>
+          ${tour.map(([a, v, t, desc, screen], i) => `<button class="m-tour" data-app="${a}" ${v !== null ? `data-v="${v}"` : ""} ${screen ? `data-screen="${screen}"` : ""}><span class="n">${i + 1}</span><div><b>${t}</b><span>${desc}</span></div></button>`).join("")}
+        </div>
+        <div class="card"><h2>Simular actividad</h2><p class="sub">Para enseñar cómo reacciona la app durante el día.</p>
+          <div style="display:flex;gap:8px;flex-wrap:wrap">
+            <button class="btn" data-app="walk">👟 Caminata de 20 min (+2.000 pasos)</button>
+            <button class="btn secondary" data-app="reset">Restablecer</button>
+          </div>
+          <p class="meta" style="margin:12px 0 0">Con una caminata se cumple el objetivo de hoy: suben las Vitas y la racha, y el logro aparece en el muro de la app y en Comunicación.</p>
+        </div>
+        <div class="note"><span>ℹ️</span><span>Simulación con datos ficticios de una persona de Logística. La app real lee los pasos y el ejercicio del móvil y del reloj a través de Health Connect.</span></div>
+      </div>
+    </div>`;
+}
+
 const VIEW_RENDERERS = {
   inicio: viewInicio, retos: viewRetos, clasificaciones: viewClasificaciones, comunicacion: viewComunicacion,
   premios: viewPremios, verificacion: viewVerificacion, informes: viewInformes, ajustes: viewAjustes,
+  app: viewApp,
 };
 
 // ------------------------------------------------------------------ eventos
@@ -818,6 +1340,7 @@ document.addEventListener("click", (e) => {
   if (!t) return;
   const d = t.dataset;
   if (d.go) return go(d.go);
+  if (d.app) return appAction(d.app, d);
   if (d.rank) { state.rankScope = d.rank; return render(); }
   if (d.comm) { state.commTab = d.comm; return render(); }
   if (d.report) { state.reportTab = d.report; return render(); }
@@ -894,6 +1417,11 @@ document.addEventListener("input", (e) => {
     if (preview) preview.outerHTML = wizardPreview(state.wizard);
   }
   if (t.id === "tpl" && t.value) $("#msg").value = t.value;
+  if (t.dataset.appin) {
+    state.phone.join[t.dataset.appin] = t.value;
+    const btn = $("#m-join");
+    if (btn) btn.disabled = !joinReady(state.phone.join);
+  }
   if (t.dataset.settingSelect) state.settings[t.dataset.settingSelect] = t.value;
 });
 document.addEventListener("change", (e) => {

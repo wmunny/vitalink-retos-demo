@@ -7,7 +7,11 @@ actividad, informes y ajustes de privacidad.
 
 Todos los datos son ficticios y nada se guarda. Abre `index.html` o la página publicada.
 Enlaces directos: `#retos`, `#nuevo-reto`, `#clasificaciones`, `#comunicacion`, `#premios`,
-`#verificacion`, `#informes`, `#ajustes`.
+`#verificacion`, `#informes`, `#ajustes`, `#app`.
+
+**App de la plantilla** (`#app`, última opción del menú): simulación navegable de la app Android
+en un móvil (Hoy, Reto, Muro, Misiones, Logros, Diagnóstico y el primer uso), con las mismas
+pantallas, textos y reglas de Vitas que `vitaly-retos/lib`. Sirve para enseñarla sin instalar la APK.
 
 ## App de prueba (Android)
 
